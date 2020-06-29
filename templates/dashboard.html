@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WooDash</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+
+<div class="main">
+  <h1>Pedidos</h1>
+
+  <ul class="cards">
+    {% for order in orders %}
+
+      <li class="cards_item">
+        <div class="card">
+          <div class="card_image"><img src="https://source.unsplash.com/40OJLYVWeeM/400x200"></div>
+          <div class="card_content">
+            <h2 class="card_title">Pedido: #{{ order.number }}</h2>
+            <div style="display: flex; justify-content: space-between;">
+              <p class="card_text">
+                {% if order.status == "cancelled" %}
+                  <span class="badge badge-danger">{{ order.status }}</span>
+                {% else %}
+                  <span class="badge badge-success">{{ order.status }}</span>
+                {% endif %}
+              </p>
+              <p class="card_text">
+                R$ {{ order.total }}
+              </p>
+            </div>
+            <p class="card_text">
+              {{ order.billing.first_name }}
+            </p>
+            <p class="card_text">
+              {{ order.customer_note }}
+            </p>
+            <button class="btn card_btn">Detalhes</button>
+          </div>
+        </div>
+      </li>
+
+    {% endfor %}
+
+
+  </ul>
+</div>
+
+<h3 class="made_by">Made with ♡</h3>
+
+
+</body>
+</html>

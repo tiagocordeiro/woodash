@@ -41,7 +41,7 @@ DJANGO_AWS_STORAGE_BUCKET_NAME=
 # WooCommerce
 WC_CK=
 WC_CS=
-WOO_COMMERCE_URL=
+WC_URL=
 """
 
 # Writing our configuration file to '.env'
